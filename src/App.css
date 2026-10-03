@@ -1,0 +1,1051 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: #1f2937;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.header {
+  background: #111827;
+  color: white;
+  padding: 24px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: white;
+}
+
+.header p {
+  margin: 6px 0 0;
+  color: #9ca3af;
+}
+
+.status {
+  background: #064e3b;
+  color: #6ee7b7;
+  padding: 8px 14px;
+  border-radius: 20px;
+}
+
+main {
+  width: 86%;
+  max-width: 1200px;
+  margin: 30px auto;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 22px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-title h2 {
+  margin: 0;
+}
+
+.section-title span {
+  color: #6b7280;
+}
+
+textarea {
+  width: 100%;
+  height: 180px;
+  padding: 18px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #111827;
+  color: #e5e7eb;
+  font-family: Consolas, monospace;
+  font-size: 16px;
+  resize: vertical;
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tokens span {
+  background: #eef2ff;
+  color: #3730a3;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: monospace;
+}
+
+.success {
+  color: #047857;
+  font-weight: bold;
+}
+
+.automata {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 35px;
+}
+
+.state {
+  width: 70px;
+  height: 70px;
+  border: 3px solid #374151;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.accepting {
+  border: 5px double #2563eb;
+}
+
+.arrow {
+  font-family: monospace;
+}
+
+.tree {
+  text-align: center;
+  padding: 25px;
+}
+
+.node {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  height: 45px;
+  margin: 8px;
+  padding: 10px 15px;
+  background: #eef2ff;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.root {
+  background: #2563eb;
+  color: white;
+  display: flex;
+  width: 55px;
+  margin: auto;
+}
+
+.branches {
+  margin-top: 20px;
+}
+
+pre {
+  background: #111827;
+  color: #e5e7eb;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: Consolas, monospace;
+  line-height: 1.7;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #6b7280;
+}
+
+
+.token-table {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.token-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  font-family: Consolas, monospace;
+}
+
+.token-row:last-child {
+  border-bottom: none;
+}
+
+.token-header {
+  background: #111827;
+  color: white;
+  font-weight: bold;
+}
+
+.lexeme {
+  color: #2563eb;
+}
+
+.token-name {
+  color: #047857;
+  font-weight: bold;
+}
+
+.error-token {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+.dfa-input {
+  text-align: center;
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.dfa-input strong {
+  margin-left: 10px;
+  font-family: Consolas, monospace;
+  color: #2563eb;
+}
+
+.dfa-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  padding: 30px;
+}
+
+.dfa-state {
+  width: 75px;
+  height: 75px;
+  border: 3px solid #374151;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: bold;
+  font-family: Consolas, monospace;
+}
+
+.dfa-state.accepting {
+  border: 5px double #2563eb;
+}
+
+.dfa-arrow {
+  font-family: Consolas, monospace;
+  font-size: 16px;
+}
+
+.dfa-table {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dfa-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 12px 16px;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+  font-family: Consolas, monospace;
+}
+
+.dfa-row:last-child {
+  border-bottom: none;
+}
+
+.dfa-header {
+  background: #111827;
+  color: white;
+  font-weight: bold;
+}
+
+.dfa-input-char {
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.accept {
+  color: #047857;
+  font-weight: bold;
+}
+
+.reject {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+.dfa-result {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.accepted-result {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.rejected-result {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.dfa-message {
+  text-align: center;
+  color: #6b7280;
+}
+
+.start-state {
+  position: relative;
+}
+
+.dfa-state small {
+  display: block;
+  font-size: 10px;
+  margin-top: 4px;
+  font-family: Arial, sans-serif;
+  color: #6b7280;
+}
+
+.dfa-state {
+  flex-direction: column;
+}
+
+.dfa-transition {
+  text-align: center;
+  min-width: 170px;
+}
+
+.transition-label {
+  color: #2563eb;
+  font-family: Consolas, monospace;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.transition-arrow {
+  font-family: Consolas, monospace;
+  font-size: 20px;
+}
+
+.dfa-state-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loop-label {
+  position: absolute;
+  top: -55px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+
+  color: #7c3aed;
+  font-family: Consolas, monospace;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.dfa-loop {
+  position: absolute;
+  top: -32px;
+  right: -38px;
+
+  font-size: 34px;
+  color: #7c3aed;
+}
+
+.first-follow-table {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ff-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: center;
+  font-family: Consolas, monospace;
+}
+
+.ff-row:last-child {
+  border-bottom: none;
+}
+
+.ff-header {
+  background: #111827;
+  color: white;
+  font-weight: bold;
+}
+
+.non-terminal {
+  color: #2563eb;
+  font-weight: bold;
+}
+
+
+/* =====================================================
+   FINAL AST DESIGN
+   ===================================================== */
+
+.my-ast {
+  width: 100% !important;
+  min-height: 470px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+
+  padding-top: 35px !important;
+
+  position: relative !important;
+}
+
+
+/* ---------- NODES ---------- */
+
+.my-ast-node {
+  width: 58px !important;
+  height: 58px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 12px !important;
+
+  font-size: 22px !important;
+  font-weight: 700 !important;
+
+  box-sizing: border-box !important;
+
+  position: relative !important;
+  z-index: 5 !important;
+
+  flex-shrink: 0 !important;
+
+  font-family: Arial, sans-serif !important;
+}
+
+
+/* ROOT */
+
+.my-ast-root {
+  background: #2563eb !important;
+  color: white !important;
+
+  border: 2px solid #1d4ed8 !important;
+}
+
+
+/* OPERATORS */
+
+.my-ast-operator {
+  background: #dbeafe !important;
+  color: #1e3a8a !important;
+
+  border: 2px solid #60a5fa !important;
+}
+
+
+/* VALUES */
+
+.my-ast-value {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+
+  border: 2px solid #cbd5e1 !important;
+}
+
+
+/* ---------- LEVELS ---------- */
+
+.my-ast-level {
+  display: flex !important;
+  flex-direction: row !important;
+
+  align-items: center !important;
+
+  position: relative !important;
+
+  flex-shrink: 0 !important;
+}
+
+
+/* LEVEL 1
+
+             =
+            / \
+           z   +
+*/
+
+.my-ast-level-1 {
+  width: 300px !important;
+
+  justify-content: space-between !important;
+
+  margin-top: 45px !important;
+}
+
+
+/* LEVEL 2
+
+             +
+            / \
+           x   *
+*/
+
+.my-ast-level-2 {
+  width: 190px !important;
+
+  justify-content: space-between !important;
+
+  margin-top: 45px !important;
+
+  margin-left: 110px !important;
+}
+
+
+/* LEVEL 3
+
+             *
+            / \
+           y   2
+*/
+
+.my-ast-level-3 {
+  width: 145px !important;
+
+  justify-content: space-between !important;
+
+  margin-top: 45px !important;
+
+  margin-left: 110px !important;
+}
+
+
+/* EMPTY SPACES */
+
+.my-ast-empty {
+  width: 58px !important;
+  height: 58px !important;
+
+  flex-shrink: 0 !important;
+}
+
+
+/* ---------- CONNECTORS ---------- */
+
+.my-ast-connector {
+  width: 300px !important;
+  height: 45px !important;
+
+  position: relative !important;
+
+  flex-shrink: 0 !important;
+}
+
+
+/* Vertical line */
+
+.my-ast-connector::before {
+  content: "" !important;
+
+  position: absolute !important;
+
+  top: 0 !important;
+  left: 50% !important;
+
+  width: 2px !important;
+  height: 45px !important;
+
+  background: #94a3b8 !important;
+
+  transform: translateX(-50%) !important;
+}
+
+
+/* Horizontal branch */
+
+.my-ast-connector::after {
+  content: "" !important;
+
+  position: absolute !important;
+
+  top: 43px !important;
+
+  left: 50% !important;
+
+  width: 150px !important;
+  height: 2px !important;
+
+  background: #94a3b8 !important;
+
+  transform: translateX(-50%) !important;
+}
+
+
+/* ---------- EXPRESSION ---------- */
+
+.ast-expression {
+  text-align: center !important;
+
+  margin-top: 10px !important;
+
+  font-size: 17px !important;
+
+  color: #475569 !important;
+}
+
+.ast-expression strong {
+  color: #0f172a !important;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 700px) {
+
+  .my-ast {
+    min-width: 520px !important;
+  }
+
+}
+
+/* ================================
+   AST CONNECTOR IMPROVEMENT
+   ================================ */
+
+.my-ast {
+  position: relative;
+}
+
+/* Make the tree slightly more compact */
+.my-ast > div {
+  box-sizing: border-box;
+}
+
+/* Better horizontal branch appearance */
+.my-ast-connector {
+  position: relative;
+}
+
+/* Smooth connector lines */
+.my-ast-connector::before {
+  background: #94a3b8 !important;
+}
+
+/* Slightly softer branch color */
+.my-ast-connector::after {
+  background: #94a3b8 !important;
+}
+
+/* Improve node spacing */
+.my-ast-level-1 {
+  width: 350px !important;
+}
+
+.my-ast-level-2 {
+  width: 240px !important;
+  margin-left: 110px !important;
+}
+
+.my-ast-level-3 {
+  width: 170px !important;
+  margin-left: 110px !important;
+}
+
+/* Give nodes a little more depth */
+.my-ast-node {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Expression */
+.ast-expression {
+  margin-top: 15px !important;
+  font-size: 17px !important;
+}
+
+
+/* ==========================================
+   ABSTRACT SYNTAX TREE - FINAL DESIGN
+   ========================================== */
+
+.ast-svg-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 10px 5px;
+  box-sizing: border-box;
+}
+
+.ast-svg {
+  width: 700px;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Tree connections */
+
+.ast-line {
+  stroke: #94a3b8;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+/* Root */
+
+.ast-root-box {
+  fill: #2563eb;
+  stroke: #1d4ed8;
+  stroke-width: 2;
+}
+
+.ast-root-text {
+  fill: white;
+  font-size: 26px;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
+}
+
+/* Operators */
+
+.ast-operator-box {
+  fill: #dbeafe;
+  stroke: #60a5fa;
+  stroke-width: 2;
+}
+
+.ast-operator-text {
+  fill: #1e3a8a;
+  font-size: 26px;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
+}
+
+/* Values */
+
+.ast-value-box {
+  fill: #f8fafc;
+  stroke: #cbd5e1;
+  stroke-width: 2;
+}
+
+.ast-value-text {
+  fill: #0f172a;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
+}
+
+/* Expression */
+
+.ast-expression {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 17px;
+  color: #475569;
+}
+
+.ast-expression strong {
+  color: #0f172a;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .ast-svg {
+    min-width: 600px;
+  }
+
+  .ast-svg-container {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+}
+
+.dfa-input {
+  text-align: center;
+  margin-bottom: 45px;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+.dfa-input strong {
+  margin-left: 8px;
+  color: #2563eb;
+  font-size: 20px;
+}
+
+.dfa-visual {
+  position: relative;
+  margin-top: 10px;
+}
+
+/* =========================================================
+   ABSTRACT SYNTAX TREE
+   ========================================================= */
+
+.ast-card {
+  overflow: hidden;
+}
+
+.ast-container {
+  width: 100%;
+  min-height: 520px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 45px 20px 20px;
+
+  overflow-x: auto;
+}
+
+
+/* Individual subtree */
+
+.ast-subtree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+}
+
+
+/* Node */
+
+.ast-node {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  position: relative;
+  z-index: 2;
+
+  box-sizing: border-box;
+}
+
+
+/* Operators */
+
+.ast-operator {
+  background: #2563eb;
+  color: white;
+
+  border: 2px solid #1d4ed8;
+
+  box-shadow:
+    0 5px 12px rgba(37, 99, 235, 0.25);
+}
+
+
+/* Variables and numbers */
+
+.ast-leaf {
+  background: #f8fafc;
+  color: #0f172a;
+
+  border: 2px solid #cbd5e1;
+
+  box-shadow:
+    0 4px 10px rgba(15, 23, 42, 0.08);
+}
+
+
+/* Children container */
+
+.ast-children {
+  display: flex;
+
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 110px;
+
+  position: relative;
+
+  margin-top: 70px;
+}
+
+
+/* Vertical line from parent */
+
+.ast-subtree > .ast-children::before {
+  content: "";
+
+  position: absolute;
+
+  top: -70px;
+  left: 50%;
+
+  width: 2px;
+  height: 70px;
+
+  background: #94a3b8;
+}
+
+
+/* Horizontal connector */
+
+.ast-child {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Line from child toward center */
+
+.ast-child::before {
+  content: "";
+
+  position: absolute;
+
+  top: -35px;
+
+  width: calc(50% + 55px);
+  height: 2px;
+
+  background: #94a3b8;
+}
+
+
+/* Left branch */
+
+.ast-child:first-child::before {
+  right: -55px;
+}
+
+
+/* Right branch */
+
+.ast-child:last-child::before {
+  left: -55px;
+}
+
+
+/* Hide connector for single child */
+
+.ast-children
+  .ast-child:only-child::before {
+  display: none;
+}
+
+
+/* Expression text */
+
+.ast-expression {
+  text-align: center;
+
+  margin-top: 15px;
+
+  font-size: 18px;
+
+  color: #334155;
+}
+
+
+/* AST success */
+
+.ast-card .success {
+  margin-top: 12px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+  .ast-container {
+    min-width: 650px;
+  }
+
+  .ast-children {
+    gap: 70px;
+  }
+
+}
+
+.parser-output {
+  min-height: 300px;
+  max-height: 600px;
+  overflow-y: auto;
+
+  background: #111827;
+  color: #f8fafc;
+
+  padding: 28px;
+
+  border-radius: 12px;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 16px;
+  line-height: 1.8;
+
+  white-space: pre-wrap;
+
+  text-align: left;
+}
